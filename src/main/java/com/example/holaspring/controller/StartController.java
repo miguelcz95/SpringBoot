@@ -1,5 +1,6 @@
 package com.example.holaspring.controller;
 
+import com.example.holaspring.dto.PersonDTO;
 import com.example.holaspring.service.IService;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,8 +33,9 @@ public class StartController {
         log.info("Starting main webpage with thymeleaf");
         model.addAttribute("message", message);
         model.addAttribute("message2", message2);
-        String listPersons = gson.toJson(service.getAllPersons());
-        model.addAttribute("persons", listPersons);
+        PersonDTO personDTO = service.getAllPersons().get(0);
+        //String listPersons = gson.toJson(service.getAllPersons());
+        model.addAttribute("person", personDTO);
         return "index";
     }
 }

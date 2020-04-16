@@ -8,6 +8,9 @@
 <h1>Home</h1>
 <p th:text="${message}"></p>
 <p th:text="${message2}"></p>
-<h2 th:text="${persons}"></h2>
+<br/>
+Nombre: <span th:text="${person.getName()}">Nombre</span><br/>
+Apellido: <span th:text="${person.getLastname()}">Apellido</span><br/>
+Email: <span th:text="${person.getEmail()}">Email</span><br/>
 </body>
 </html>
