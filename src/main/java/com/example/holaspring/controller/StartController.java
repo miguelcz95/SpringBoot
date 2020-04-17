@@ -11,6 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 @Slf4j
 public class StartController {
@@ -33,9 +36,19 @@ public class StartController {
         log.info("Starting main webpage with thymeleaf");
         model.addAttribute("message", message);
         model.addAttribute("message2", message2);
-        PersonDTO personDTO = service.getAllPersons().get(0);
-        //String listPersons = gson.toJson(service.getAllPersons());
-        model.addAttribute("person", personDTO);
+        /*PersonDTO personDTO = service.getAllPersons().get(0);
+        model.addAttribute("person", personDTO);*/
+        /*String listPersons = gson.toJson(service.getAllPersons());
+        model.addAttribute("personas",listPersons);*/
+        model.addAttribute("personas",service.getAllPersons());
+        //Lista Vacia
+        /*List<PersonDTO> lista = new ArrayList();
+        model.addAttribute("personas",  lista );*/
+        /*service.getAllPersons().forEach(
+                p -> {
+                    log.info("Person extracted" + p);
+                    model.addAttribute("persona", p);
+                });*/
         return "index";
     }
 }

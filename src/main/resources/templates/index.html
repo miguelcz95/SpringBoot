@@ -9,8 +9,25 @@
 <p th:text="${message}"></p>
 <p th:text="${message2}"></p>
 <br/>
-Nombre: <span th:text="${person.getName()}">Nombre</span><br/>
+<div th:if="${personas.size() != 0 && !personas.isEmpty()}">
+    <table border="1">
+        <tr>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Email</th>
+        </tr>
+        <tr th:each="person : ${personas}">
+            <td th:text="${person.getName()}">Nombre</td>
+            <td th:text="${person.getLastname()}">Apellido</td>
+            <td th:text="${person.getEmail()}">Email</td>
+        </tr>
+    </table>
+</div>
+<div th:if="${personas.size() == 0 && personas.isEmpty()}">
+    La lista de personas esta vacia
+</div>
+<!--Nombre: <span th:text="${person.getName()}">Nombre</span><br/>
 Apellido: <span th:text="${person.getLastname()}">Apellido</span><br/>
-Email: <span th:text="${person.getEmail()}">Email</span><br/>
+Email: <span th:text="${person.getEmail()}">Email</span><br/> -->
 </body>
 </html>
