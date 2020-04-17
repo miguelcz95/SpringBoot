@@ -23,23 +23,8 @@ public class StartController {
 
     @GetMapping("/")
     public String start(Model model) {
-        String message = "Hello World with Thymeleaf";
-        log.info("Executing Spring MVC controller");
-        log.info("Starting main webpage with thymeleaf");
-        model.addAttribute("message", message);
-        /*PersonDTO personDTO = service.getAllPersons().get(0);
-        model.addAttribute("person", personDTO);*/
-        /*String listPersons = gson.toJson(service.getAllPersons());
-        model.addAttribute("personas",listPersons);*/
+        log.info("Ejecutando Spring");
         model.addAttribute("personas", service.getAllPersons());
-        //Lista Vacia
-        /*List<PersonDTO> lista = new ArrayList();
-        model.addAttribute("personas",  lista );*/
-        /*service.getAllPersons().forEach(
-                p -> {
-                    log.info("Person extracted" + p);
-                    model.addAttribute("persona", p);
-                });*/
         return "index";
     }
 }
